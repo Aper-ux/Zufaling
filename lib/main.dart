@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:camera/camera.dart';
 import 'package:flutter/services.dart';
 import 'camera_widget.dart';
+=======
+import 'pages/wellcome.dart';
+import 'pages/tutorial.dart';
+import 'pages/login.dart';
+import 'pages/rutinas.dart';
+import 'pages/wall.dart';
+>>>>>>> 5fd4d3ac4d88d4eb1671d9c1445b89cd522491ff
 
 void main() async {
   // Ensure that plugin services are initialized so that `availableCameras()`
@@ -23,6 +31,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+<<<<<<< HEAD
       title: 'Camera Stream Demo',
       home: CameraScreen(cameras: cameras),
     );
@@ -151,3 +160,21 @@ class CameraPreviewWidget extends StatelessWidget {
       );
   }
 }
+=======
+        debugShowCheckedModeBanner: false,
+        title: 'LateralidApp',
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.deepOrange,
+          primarySwatch: Colors.orange,
+        ),
+        initialRoute: wellcome.id,
+        routes: {
+          wellcome.id: (context) => const wellcome(),
+          tutorial.id: (context) => const tutorial(),
+          login.id: (context) => const login(),
+          rutinas.id: (context) => const rutinas(),
+          wall.id: (context) => const wall(),
+        });
+  }
+}
+>>>>>>> 5fd4d3ac4d88d4eb1671d9c1445b89cd522491ff
