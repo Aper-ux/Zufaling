@@ -1,4 +1,4 @@
-name: Zufaling
+name: zufaling
 description: A new Flutter project.
 publish_to: 'none'
 version: 0.1.0
@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  google_mlkit_pose_detection: ^0.5.0
+  camera: ^0.10.0
   video_player: ^2.6.1
   fluttertoast: ^8.0.8
 

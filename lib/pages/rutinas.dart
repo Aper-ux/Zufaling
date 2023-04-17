@@ -55,38 +55,47 @@ class _rutinasState extends State<rutinas> {
               ),
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Rutina 1',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'camera');
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'Rutina 1',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
-                  textAlign: TextAlign.start,
-                ),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/r1.jpg'),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/r1.jpg'),
+                      ),
+                    ),
+                    child: SizedBox(
+                      width: 150,
+                      height: 150,
                     ),
                   ),
-                  child: SizedBox(
-                    width: 150,
-                    height: 150,
+                  Text(
+                    'Descripcion de la rutina 1',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                Text(
-                  'Descripcion de la rutina 1',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Container(
@@ -102,38 +111,47 @@ class _rutinasState extends State<rutinas> {
               ),
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Rutina 2',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'camera');
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'Rutina 2',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
-                  textAlign: TextAlign.start,
-                ),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/r1.jpg'),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/r1.jpg'),
+                      ),
+                    ),
+                    child: SizedBox(
+                      width: 150,
+                      height: 150,
                     ),
                   ),
-                  child: SizedBox(
-                    width: 150,
-                    height: 150,
+                  Text(
+                    'Descripcion de la rutina 2',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                Text(
-                  'Descripcion de la rutina 2',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Container(
@@ -149,38 +167,47 @@ class _rutinasState extends State<rutinas> {
               ),
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Rutina 3',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'camera');
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'Rutina 3',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
-                  textAlign: TextAlign.start,
-                ),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/r1.jpg'),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/r1.jpg'),
+                      ),
+                    ),
+                    child: SizedBox(
+                      width: 150,
+                      height: 150,
                     ),
                   ),
-                  child: SizedBox(
-                    width: 150,
-                    height: 150,
+                  Text(
+                    'Descripcion de la rutina 3',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                Text(
-                  'Descripcion de la rutina 3',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Container(
@@ -196,38 +223,47 @@ class _rutinasState extends State<rutinas> {
               ),
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Rutina 4',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'camera');
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'Rutina 4',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
-                  textAlign: TextAlign.start,
-                ),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/r1.jpg'),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/r1.jpg'),
+                      ),
+                    ),
+                    child: SizedBox(
+                      width: 150,
+                      height: 150,
                     ),
                   ),
-                  child: SizedBox(
-                    width: 150,
-                    height: 150,
+                  Text(
+                    'Descripcion de la rutina 4',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                Text(
-                  'Descripcion de la rutina 4',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Container(
@@ -243,38 +279,47 @@ class _rutinasState extends State<rutinas> {
               ),
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Rutina 5',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'camera');
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'Rutina 5',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
-                  textAlign: TextAlign.start,
-                ),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/r1.jpg'),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/r1.jpg'),
+                      ),
+                    ),
+                    child: SizedBox(
+                      width: 150,
+                      height: 150,
                     ),
                   ),
-                  child: SizedBox(
-                    width: 150,
-                    height: 150,
+                  Text(
+                    'Descripcion de la rutina 5',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                Text(
-                  'Descripcion de la rutina 5',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Container(
@@ -290,38 +335,47 @@ class _rutinasState extends State<rutinas> {
               ),
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  'Rutina 6',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                shadowColor: Colors.transparent,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, 'camera');
+              },
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text(
+                    'Rutina 6',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
-                  textAlign: TextAlign.start,
-                ),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/r1.jpg'),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/r1.jpg'),
+                      ),
+                    ),
+                    child: SizedBox(
+                      width: 150,
+                      height: 150,
                     ),
                   ),
-                  child: SizedBox(
-                    width: 150,
-                    height: 150,
+                  Text(
+                    'Descripcion de la rutina 6',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                ),
-                Text(
-                  'Descripcion de la rutina 6',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
