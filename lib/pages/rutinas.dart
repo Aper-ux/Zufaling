@@ -61,7 +61,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +117,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -173,7 +173,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -229,7 +229,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -285,7 +285,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -341,7 +341,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
