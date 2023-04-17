@@ -5,12 +5,12 @@ import 'pages/tutorial.dart';
 import 'pages/login.dart';
 import 'pages/rutinas.dart';
 import 'pages/wall.dart';
-import 'pages/camera.dart';
 import 'package:camera/camera.dart';
+import 'vision_detector/pose_detector_view.dart';
 
 void main() async{
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   final cameras = await availableCameras();
   runApp(MainApp(cameras: cameras));
 }
@@ -35,7 +35,7 @@ class MainApp extends StatelessWidget {
           login.id: (context) => const login(),
           rutinas.id: (context) => const rutinas(),
           wall.id: (context) => const wall(),
-          camera.id: (context) => camera(cameras: cameras),
+          poseDetectorView.id : (context) => poseDetectorView(cameras: cameras),
         });
   }
 }
