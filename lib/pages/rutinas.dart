@@ -36,11 +36,11 @@ class _rutinasState extends State<rutinas> {
       ),
       body: GridView.count(
         primary: false,
-        padding: const EdgeInsets.all(18),
+        padding: const EdgeInsets.all(20),
         crossAxisSpacing: 15,
         mainAxisSpacing: 15,
         crossAxisCount: 2,
-        childAspectRatio: 2 / 4,
+        childAspectRatio: 2 / 3.5,
         children: <Widget>[
           Container(
             height: 100,
@@ -61,7 +61,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -117,7 +117,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -173,7 +173,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -229,7 +229,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -285,7 +285,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -341,7 +341,7 @@ class _rutinasState extends State<rutinas> {
                 shadowColor: Colors.transparent,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'camera');
+                Navigator.pushNamed(context, 'pose_detector');
               },
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
