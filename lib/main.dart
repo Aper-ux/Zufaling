@@ -8,9 +8,10 @@ import 'pages/wall.dart';
 import 'pages/camera.dart';
 import 'package:camera/camera.dart';
 
-void main() async{
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   final cameras = await availableCameras();
   runApp(MainApp(cameras: cameras));
 }

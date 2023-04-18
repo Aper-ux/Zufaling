@@ -36,11 +36,11 @@ class _rutinasState extends State<rutinas> {
       ),
       body: GridView.count(
         primary: false,
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(18),
         crossAxisSpacing: 15,
         mainAxisSpacing: 15,
         crossAxisCount: 2,
-        childAspectRatio: 2 / 3.5,
+        childAspectRatio: 2 / 4,
         children: <Widget>[
           Container(
             height: 100,

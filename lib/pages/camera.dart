@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
+// ignore: camel_case_types
 class camera extends StatefulWidget {
   final List<CameraDescription> cameras;
+  // ignore: use_key_in_widget_constructors
   const camera({Key? key, required this.cameras});
 
   static String id = 'camera';
@@ -66,33 +68,33 @@ class _cameraState extends State<camera> {
   Widget build(BuildContext context) {
     return FutureBuilder<void>(
       future: _controller.initialize(),
-      builder: (context, snapshot){
-        if(snapshot.connectionState == ConnectionState.done){
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
           startStream();
           return Scaffold(
-      body: Center(
-          child: AspectRatio(
-        aspectRatio: 1 / _controller.value.aspectRatio,
-        child: _controller.value.isInitialized
-            ? CameraPreview(_controller)
-            : const CircularProgressIndicator(),
-      )),
-      floatingActionButton:
-          Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-        FloatingActionButton(
-          onPressed: () {
-            Navigator.pushNamed(context, 'rutinas');
-          },
-          child: const Icon(Icons.stop),
-        ),
-        const SizedBox(height: 10),
-        FloatingActionButton(
-          onPressed: _toggleCamera,
-          child: const Icon(Icons.switch_camera),
-        ),
-      ]),
-    );
-        }else{
+            body: Center(
+                child: AspectRatio(
+              aspectRatio: 1 / _controller.value.aspectRatio,
+              child: _controller.value.isInitialized
+                  ? CameraPreview(_controller)
+                  : const CircularProgressIndicator(),
+            )),
+            floatingActionButton:
+                Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+              FloatingActionButton(
+                onPressed: () {
+                  Navigator.pop(context, 'rutinas');
+                },
+                child: const Icon(Icons.stop),
+              ),
+              const SizedBox(height: 10),
+              FloatingActionButton(
+                onPressed: _toggleCamera,
+                child: const Icon(Icons.switch_camera),
+              ),
+            ]),
+          );
+        } else {
           return const Center(child: CircularProgressIndicator());
         }
       },

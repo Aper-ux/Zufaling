@@ -98,11 +98,11 @@ class _loginState extends State<login> {
                 backgroundColor: Colors.white,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'rutinas');
+                Navigator.popAndPushNamed(context, 'rutinas');
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: const Text('¡Bienvenido!'),
-                    duration: const Duration(seconds: 2),
+                    duration: const Duration(seconds: 1),
                     elevation: 6,
                     behavior: SnackBarBehavior.floating,
                     shape: RoundedRectangleBorder(
