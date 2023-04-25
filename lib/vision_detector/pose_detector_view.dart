@@ -49,10 +49,11 @@ class _poseDetectorViewState extends State<poseDetectorView> {
   @override
   Widget build(BuildContext context) {
     return camera(
-        cameras: widget.cameras,
-        customPaint: _customPaint,
-        onImage: (inputImage) {
-          processImage(inputImage);
-        },);
+      cameras: widget.cameras,
+      customPaint: _customPaint,
+      onImage: (inputImage) {
+        processImage(inputImage);
+      },
+    );
   }
 }

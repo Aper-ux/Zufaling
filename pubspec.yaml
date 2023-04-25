@@ -13,11 +13,32 @@ dependencies:
   camera: ^0.10.0
   video_player: ^2.6.1
   fluttertoast: ^8.0.8
+  flutter_native_splash: ^2.2.19
+  sqflite: ^2.2.7
+  path_provider: ^2.0.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+
+flutter_native_splash:
+  color: "#fe5623"
+  color_dark: "#000000"
+  image: "assets/images/logo.png"
+  image_dark: "assets/images/logo.png"
+  branding: assets/images/brand.png
+
+  android_12:
+    color: "#fe5623"
+    color_dark: "#000000"
+    image: "assets/images/logo.png"
+    icon_background_color: "#fe5623"
+    image_dark: "assets/images/logo.png"
+    icon_background_color_dark: "#000000"
+    branding: assets/images/brand.png
+
+  web: false
 
 flutter:
   uses-material-design: true

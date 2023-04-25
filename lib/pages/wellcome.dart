@@ -26,7 +26,7 @@ class _wellcomeState extends State<wellcome> {
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 )),
-            const Text('LateralidApp',
+            const Text('CordinAPP',
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
@@ -66,7 +66,7 @@ class _wellcomeState extends State<wellcome> {
                 backgroundColor: Colors.white,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'tutorial');
+                Navigator.popAndPushNamed(context, 'tutorial');
               },
               child: const Text('Continuar'),
             ),

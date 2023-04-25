@@ -41,7 +41,7 @@ class _tutorialState extends State<tutorial> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('LateralidApp',
+            const Text('CordinAPP',
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
@@ -107,7 +107,7 @@ class _tutorialState extends State<tutorial> {
                 backgroundColor: Colors.white,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, 'login');
+                Navigator.popAndPushNamed(context, 'login');
               },
               child: const Text('Ingresar'),
             ),

@@ -15,7 +15,7 @@ class PosePainter extends CustomPainter {
     final paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 4.0
-      ..color = Colors.yellow;
+      ..color = Colors.deepOrange;
 
     final leftPaint = Paint()
       ..style = PaintingStyle.stroke
@@ -25,7 +25,7 @@ class PosePainter extends CustomPainter {
     final rightPaint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 3.0
-      ..color = Color.fromARGB(255, 4, 134, 240);
+      ..color = Colors.deepOrange;
 
     for (final pose in poses) {
       pose.landmarks.forEach((_, landmark) {
@@ -81,5 +81,10 @@ class PosePainter extends CustomPainter {
   bool shouldRepaint(covariant PosePainter oldDelegate) {
     return oldDelegate.absoluteImageSize != absoluteImageSize ||
         oldDelegate.poses != poses;
+  }
+
+  @override
+  bool shouldRebuildSemantics(covariant PosePainter oldDelegate) {
+    return false;
   }
 }

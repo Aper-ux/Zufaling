@@ -72,19 +72,21 @@ class _cameraState extends State<camera> {
   }
 
   Widget? _floatingActionButton() {
-    return Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-      FloatingActionButton(
-        onPressed: () {
-          Navigator.pop(context);
-        },
-        child: const Icon(Icons.stop),
-      ),
-      const SizedBox(height: 10),
-      FloatingActionButton(
-        onPressed: _switchLiveCamera,
-        child: const Icon(Icons.switch_camera),
-      ),
-    ]);
+    return ScaffoldMessenger(
+      child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+        FloatingActionButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.stop_rounded),
+        ),
+        const SizedBox(height: 10),
+        FloatingActionButton(
+          onPressed: _switchLiveCamera,
+          child: const Icon(Icons.switch_camera_outlined),
+        ),
+      ]),
+    );
   }
 
   Widget _body() {

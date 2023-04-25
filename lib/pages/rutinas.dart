@@ -14,6 +14,8 @@ class rutinas extends StatefulWidget {
 class _rutinasState extends State<rutinas> {
   @override
   Widget build(BuildContext context) {
+    final dynamic args = ModalRoute.of(context)?.settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         /* erase back button */
@@ -24,7 +26,7 @@ class _rutinasState extends State<rutinas> {
         /* add title */
         /* center the title at the center of the screen */
         centerTitle: true,
-        title: const Text('\nLateralidApp\nRutinas',
+        title: const Text('\nCordinAPP\nRutinas',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 30,
@@ -36,11 +38,11 @@ class _rutinasState extends State<rutinas> {
       ),
       body: GridView.count(
         primary: false,
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(16),
         crossAxisSpacing: 15,
         mainAxisSpacing: 15,
         crossAxisCount: 2,
-        childAspectRatio: 2 / 3.5,
+        childAspectRatio: 2 / 4,
         children: <Widget>[
           Container(
             height: 100,
@@ -379,6 +381,22 @@ class _rutinasState extends State<rutinas> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: registros(args),
+    );
+  }
+
+  Widget? registros(args) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 88, left: 30),
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: FloatingActionButton(
+          onPressed: () {
+            Navigator.pushNamed(context, 'record', arguments: args);
+          },
+          child: const Icon(Icons.library_books_outlined),
+        ),
       ),
     );
   }

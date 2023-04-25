@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../classes/user.dart';
 
 // ignore: camel_case_types
 class login extends StatefulWidget {
@@ -12,6 +13,25 @@ class login extends StatefulWidget {
 
 // ignore: camel_case_types
 class _loginState extends State<login> {
+  final user = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    user.addListener(_printLatestValue);
+  }
+
+  @override
+  void dispose() {
+    user.dispose();
+    super.dispose();
+  }
+
+  void _printLatestValue() {
+    print('Second text field: ${user.text}');
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -20,7 +40,7 @@ class _loginState extends State<login> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('LateralidApp',
+            const Text('CordinAPP',
                 style: TextStyle(
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
@@ -50,8 +70,8 @@ class _loginState extends State<login> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
+                children: [
+                  const Text(
                     'Nombre:',
                     style: TextStyle(
                       fontSize: 24,
@@ -59,17 +79,18 @@ class _loginState extends State<login> {
                     ),
                     textAlign: TextAlign.start,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 0),
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
                     child: TextField(
-                      style: TextStyle(
+                      controller: user,
+                      style: const TextStyle(
                         fontSize: 18,
                       ),
                       cursorHeight: 20,
                       cursorWidth: 2,
-                      cursorRadius: Radius.circular(1),
-                      decoration: InputDecoration(
+                      cursorRadius: const Radius.circular(1),
+                      decoration: const InputDecoration(
                         isDense: true,
                         contentPadding:
                             EdgeInsets.symmetric(vertical: 8, horizontal: 4),
@@ -97,20 +118,21 @@ class _loginState extends State<login> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
               ),
-              onPressed: () {
-                Navigator.popAndPushNamed(context, 'rutinas');
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: const Text('¡Bienvenido!'),
-                    duration: const Duration(seconds: 1),
-                    elevation: 6,
-                    behavior: SnackBarBehavior.floating,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    backgroundColor: Colors.orange,
-                  ),
-                );
+              onPressed: () async {
+                /* call to searchUser */
+                final users = await searchUser(user.text);
+
+                if (users.isEmpty) {
+                  /* create user */
+                  final userData = User(name: user.text, id: '0');
+                  await insertUser(userData);
+                  rutinasPage(userData.name);
+                  print('creo usuario');
+                } else {
+                  final userData = users[0].name;
+                  rutinasPage(userData);
+                  print('encontro usuario');
+                }
               },
               child: const Text('Empezar'),
             ),
@@ -118,5 +140,29 @@ class _loginState extends State<login> {
         ),
       ),
     ));
+  }
+
+  void rutinasPage(us) {
+    showSnack(us);
+    Navigator.pushNamed(context, 'rutinas', arguments: {'user': us});
+  }
+
+  void showSnack(us) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Bienvenido $us !',
+            style: const TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            )),
+        duration: const Duration(seconds: 1),
+        elevation: 6,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+        backgroundColor: Colors.orange,
+      ),
+    );
   }
 }
