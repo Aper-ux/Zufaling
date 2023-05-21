@@ -7,6 +7,8 @@ import 'pages/rutinas.dart';
 import 'pages/wall.dart';
 import 'package:camera/camera.dart';
 import 'pages/record.dart';
+import 'classes/bubles.dart';
+import 'classes/trainings.dart';
 import 'vision_detector/pose_detector_view.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
@@ -45,8 +47,25 @@ class MainApp extends StatelessWidget {
           login.id: (context) => const login(),
           rutinas.id: (context) => const rutinas(),
           wall.id: (context) => const wall(),
-          poseDetectorView.id: (context) => poseDetectorView(cameras: cameras),
           record.id: (context) => const record(),
-        });
+        },
+        onGenerateRoute: (settings) {
+          if (settings.name == PoseDetectorView.id) {
+            final Map<String, dynamic> arguments = settings.arguments as Map<String, dynamic>;
+            final List<Buble> bubles = arguments['bubles'];
+            final Training training = arguments['training'];
+            return MaterialPageRoute(
+              builder: (context) => PoseDetectorView(
+                cameras: cameras,
+                bubles: bubles,
+                training: training,
+              ),
+              fullscreenDialog: true,
+            );
+          }
+          return null;
+        },
+        
+        );
   }
 }

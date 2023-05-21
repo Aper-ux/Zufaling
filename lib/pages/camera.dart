@@ -10,12 +10,14 @@ class camera extends StatefulWidget {
       {Key? key,
       required this.cameras,
       required this.customPaint,
+      //required this.bubles_painter,
       required this.onImage,
       this.initialDirection = CameraLensDirection.front})
       : super(key: key);
 
   final List<CameraDescription> cameras;
   final CustomPaint? customPaint;
+  //final CustomPaint? bubles_painter;
   final Function(InputImage inputImage) onImage;
   final CameraLensDirection initialDirection;
   @override
@@ -122,6 +124,7 @@ class _cameraState extends State<camera> {
             ),
           ),
           if (widget.customPaint != null) widget.customPaint!,
+          //if (widget.bubles_painter != null) widget.bubles_painter!,
         ],
       ),
     );
