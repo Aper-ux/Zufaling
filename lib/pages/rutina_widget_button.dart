@@ -8,17 +8,16 @@ class RutinaWidgetButton extends StatelessWidget {
       required this.name,
       required this.imageUrl,
       required this.description,
-      required this.bubles,
-      required this.training})
+      required this.bubles,})
       : super(key: key);
   final String name;
   final String imageUrl;
   final String description;
   final List<Buble> bubles;
-  final Training training;
 
   @override
   Widget build(BuildContext context) {
+    final Training training = Training(bubles.first);
     return Container(
       height: 100,
       padding: const EdgeInsets.all(15),

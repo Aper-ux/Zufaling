@@ -64,6 +64,11 @@ class Buble {
     canvas.drawCircle(this.position, this.radius, paint);
   }
   
+  @override
+  String toString() {
+    return 'Buble{visible: $visible, position: $position, radius: $radius, color: $color, strokeWidth: $strokeWidth, detector: $detector}';
+  }
+
   bool isInside(Pose pose, InputImageRotation rotation, Size size,
       Size absoluteImageSize) {
     PoseLandmark poseLandmark = pose.landmarks[this.detector]!;

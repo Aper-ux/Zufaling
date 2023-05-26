@@ -48,6 +48,12 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
           inputImage.inputImageData!.size,
           inputImage.inputImageData!.imageRotation);
       _customPaint = CustomPaint(painter: painter);
+      //Control de final de entrenamiento
+      if(widget.bubles.indexOf(widget.training.actualBuble!) == widget.bubles.length - 1){
+        //TODO: Mostrar pantalla de fin de entrenamiento
+        print('Fin de entrenamiento');
+        Navigator.pop(context); 
+      }
     } else {
       _customPaint = null;
     }
