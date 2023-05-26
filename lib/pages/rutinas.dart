@@ -47,140 +47,28 @@ class _rutinasState extends State<rutinas> {
         childAspectRatio: 2 / 4,
         children: <Widget>[
           RutinaWidgetButton(
-              name: 'Rutina demo 1',
-              imageUrl: 'assets/images/r1.jpg',
-              description: 'Descripcion rutina demo 1',
-              bubles: Training.trainings['Facil']!,
-              ),
-          RutinaWidgetButton(
-              name: 'Rutina demo 2',
-              imageUrl: 'assets/images/r1.jpg',
-              description: 'Descripcion rutina demo 2',
-              bubles: Training.trainings['Medio']!,
-              ),
-          RutinaWidgetButton(
-              name: 'Rutina demo 3',
-              imageUrl: 'assets/images/r1.jpg',
-              description: 'Descripcion rutina demo 3',
-              bubles: Training.trainings['Dificil']!,
-              ),
-          RutinaWidgetButton(
-              name: 'Random demo',
-              imageUrl: 'assets/images/r1.jpg',
-              description: 'Descripcion rutina random demo',
-              bubles: Training.getRandomBubles(Size(370.0, 370.0)),   
-              ),
-          Container(
-            height: 100,
-            padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(208, 0, 0, 0),
-              border: Border(
-                top: BorderSide(width: 1.0, color: Colors.white),
-                left: BorderSide(width: 1.0, color: Colors.white),
-                right: BorderSide(width: 1.0, color: Colors.white),
-                bottom: BorderSide(width: 1.0, color: Colors.white),
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            ),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.transparent,
-                shadowColor: Colors.transparent,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, 'pose_detector');
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Rutina 5',
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/r1.jpg'),
-                      ),
-                    ),
-                    child: SizedBox(
-                      width: 150,
-                      height: 150,
-                    ),
-                  ),
-                  Text(
-                    'Descripcion de la rutina 5',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            ),
+            name: 'Rutina demo 1',
+            description: 'Descripcion rutina demo 1',
+            bubles: Training.trainings['Facil']!,
+            user: args['user'],
           ),
-          Container(
-            height: 100,
-            padding: const EdgeInsets.all(15),
-            decoration: const BoxDecoration(
-              color: Color.fromARGB(208, 0, 0, 0),
-              border: Border(
-                top: BorderSide(width: 1.0, color: Colors.white),
-                left: BorderSide(width: 1.0, color: Colors.white),
-                right: BorderSide(width: 1.0, color: Colors.white),
-                bottom: BorderSide(width: 1.0, color: Colors.white),
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            ),
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.transparent,
-                shadowColor: Colors.transparent,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, 'pose_detector');
-              },
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Rutina 6',
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.start,
-                  ),
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/r1.jpg'),
-                      ),
-                    ),
-                    child: SizedBox(
-                      width: 150,
-                      height: 150,
-                    ),
-                  ),
-                  Text(
-                    'Descripcion de la rutina 6',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              ),
-            ),
+          RutinaWidgetButton(
+            name: 'Rutina demo 2',
+            description: 'Descripcion rutina demo 2',
+            bubles: Training.trainings['Medio']!,
+            user: args['user'],
+          ),
+          RutinaWidgetButton(
+            name: 'Rutina demo 3',
+            description: 'Descripcion rutina demo 3',
+            bubles: Training.trainings['Dificil']!,
+            user: args['user'],
+          ),
+          RutinaWidgetButton(
+            name: 'Random demo',
+            description: 'Descripcion rutina random demo',
+            bubles: Training.getRandomBubles(Size(370.0, 370.0)),
+            user: args['user'],
           ),
         ],
       ),

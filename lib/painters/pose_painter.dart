@@ -3,9 +3,11 @@ import 'package:google_mlkit_pose_detection/google_mlkit_pose_detection.dart';
 import 'package:zufaling/classes/bubles.dart';
 import 'coordinates_translator.dart';
 import 'package:zufaling/classes/trainings.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class PosePainter extends CustomPainter {
-  PosePainter(this.training, this.bubles, this.poses, this.absoluteImageSize, this.rotation);
+  PosePainter(this.training, this.bubles, this.poses, this.absoluteImageSize,
+      this.rotation);
 
   final List<Buble> bubles;
   final List<Pose> poses;
@@ -33,15 +35,17 @@ class PosePainter extends CustomPainter {
     //Comprobar si visibleBuble tiene algun valor asignado
 
     for (Buble buble in bubles) {
-      if (buble.getVisibility()){
+      if (buble.getVisibility()) {
         buble.draw(canvas);
       }
     }
 
     for (final pose in poses) {
-      if(training.actualBuble!.isInside(pose, rotation, size, absoluteImageSize)){
+      if (training.actualBuble!
+          .isInside(pose, rotation, size, absoluteImageSize)) {
         training.actualBuble!.setVisibility(false);
-        training.setActualBuble(bubles[(bubles.indexOf(training.actualBuble!)+1) % bubles.length]);
+        training.setActualBuble(bubles[
+            (bubles.indexOf(training.actualBuble!) + 1) % bubles.length]);
       }
       pose.landmarks.forEach((_, landmark) {
         canvas.drawCircle(

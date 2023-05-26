@@ -5,8 +5,6 @@ class User {
   final String id;
   final String name;
 
-  var user;
-
   User({required this.id, required this.name});
 
   Map<String, dynamic> toMap() {

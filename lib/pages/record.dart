@@ -61,14 +61,23 @@ class _recordState extends State<record> {
                 child: Column(
                   children: [
                     /* Show user */
-                    Text(
-                      'Usuario: $us',
-                      style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(
                         color: Colors.white,
+                        borderRadius: BorderRadius.circular(5),
+                        border: Border.all(color: Colors.black),
+                      ),
+                      child: Text(
+                        '$us',
+                        style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
+                    
                   ],
                 ),
               ),

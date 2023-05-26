@@ -3,17 +3,17 @@ import 'package:zufaling/classes/trainings.dart';
 import 'package:zufaling/classes/bubles.dart';
 
 class RutinaWidgetButton extends StatelessWidget {
-  const RutinaWidgetButton(
-      {Key? key,
-      required this.name,
-      required this.imageUrl,
-      required this.description,
-      required this.bubles,})
-      : super(key: key);
+  const RutinaWidgetButton({
+    Key? key,
+    required this.name,
+    required this.description,
+    required this.bubles,
+    required this.user,
+  }) : super(key: key);
   final String name;
-  final String imageUrl;
   final String description;
   final List<Buble> bubles;
+  final String user;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +40,7 @@ class RutinaWidgetButton extends StatelessWidget {
           Navigator.pushNamed(context, 'pose_detector', arguments: {
             'training': training,
             'bubles': bubles,
+            'user': user,
           });
         },
         child: Column(
@@ -53,17 +54,6 @@ class RutinaWidgetButton extends StatelessWidget {
                 color: Colors.white,
               ),
               textAlign: TextAlign.start,
-            ),
-            DecoratedBox(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(imageUrl),
-                ),
-              ),
-              child: const SizedBox(
-                width: 150,
-                height: 150,
-              ),
             ),
             Text(
               description,

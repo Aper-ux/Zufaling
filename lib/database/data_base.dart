@@ -38,6 +38,7 @@ class data_base {
       user_id INTEGER NOT NULL,
       rutine INTEGER NOT NULL,
       date TEXT NOT NULL,
+      completed TEXT NOT NULL,
       FOREIGN KEY (user_id) REFERENCES user(id)
     )
   ''');

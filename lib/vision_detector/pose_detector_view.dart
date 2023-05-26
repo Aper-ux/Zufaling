@@ -5,20 +5,32 @@ import 'package:zufaling/classes/bubles.dart';
 import 'package:zufaling/classes/trainings.dart';
 import 'package:zufaling/painters/pose_painter.dart';
 import 'package:zufaling/pages/camera.dart';
+import 'package:intl/intl.dart';
+
+import '../classes/user.dart';
+import '../classes/rutines.dart';
 
 class PoseDetectorView extends StatefulWidget {
   final List<CameraDescription> cameras;
   final List<Buble> bubles;
   final Training training;
-  const PoseDetectorView({Key? key, required this.cameras, required this.bubles, required this.training}) : super(key: key);
+  final String user;
+  const PoseDetectorView(
+      {Key? key,
+      required this.cameras,
+      required this.bubles,
+      required this.training,
+      required this.user})
+      : super(key: key);
 
   static String id = 'pose_detector';
-  
+
   @override
   PoseDetectorViewState createState() => PoseDetectorViewState();
 }
 
 class PoseDetectorViewState extends State<PoseDetectorView> {
+  bool dialogFlag = false;
   final PoseDetector _poseDetector =
       PoseDetector(options: PoseDetectorOptions());
 
@@ -49,10 +61,32 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
           inputImage.inputImageData!.imageRotation);
       _customPaint = CustomPaint(painter: painter);
       //Control de final de entrenamiento
-      if(widget.bubles.indexOf(widget.training.actualBuble!) == widget.bubles.length - 1){
-        //TODO: Mostrar pantalla de fin de entrenamiento
+      if (widget.bubles.indexOf(widget.training.actualBuble!) + 1 ==
+              widget.bubles.length &&
+          !dialogFlag) {
+        final users = await searchUser(widget.user);
+
+        // Obtener el id del user users
+        final id = users[0].id;
+
+        // Insertar rutina completada en rutinas
+        DateTime now = DateTime.now();
+        String formattedDate = DateFormat('dd/MM/yyyy').format(now);
+        String formattedTime = DateFormat('HH:mm:ss').format(now);
+        String date = '$formattedDate - $formattedTime';
+
+        final rutineData = Rutines(
+            id: 0, rutine: 'Rutina', userId: id, date: date, completed: 'yes');
+
+        insertRutine(rutineData);
+
+        // ignore: use_build_context_synchronously
+        Navigator.pushNamed(context, 'rutinas',
+            arguments: {'user': widget.user});
+        // ignore: use_build_context_synchronously
+        showAlertDialog(context, widget.user);
+
         print('Fin de entrenamiento');
-        Navigator.pop(context); 
       }
     } else {
       _customPaint = null;
@@ -68,6 +102,48 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
       customPaint: _customPaint,
       onImage: (inputImage) {
         processImage(inputImage);
+      },
+    );
+  }
+
+  void showAlertDialog(BuildContext context, String user) {
+    dialogFlag = true;
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Builder(
+          builder: (BuildContext context) {
+            return AlertDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              title: Text(
+                '¡Felicidades $user!',
+                style: const TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              content: const Text(
+                'Acabas de terminar tu rutina!',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Ok'),
+                ),
+              ],
+            );
+          },
+        );
       },
     );
   }
