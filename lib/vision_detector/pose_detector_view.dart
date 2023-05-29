@@ -65,6 +65,9 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
       if (widget.bubles.indexOf(widget.training.actualBuble!) + 1 ==
               widget.bubles.length &&
           !dialogFlag) {
+        for (Buble buble in widget.bubles){
+          buble.visible = false;
+        }
         final users = await searchUser(widget.user);
 
         // Obtener el id del user users
