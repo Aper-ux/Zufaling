@@ -9,7 +9,7 @@ import 'dart:math';
 class Training {
   static var pltList = [PoseLandmarkType.leftWrist, PoseLandmarkType.rightWrist, PoseLandmarkType.nose];
   static var colors = [Colors.white, Colors.deepOrange, Colors.red];
-  
+  String name = "";
   static var trainings = {
     "Facil": [
       Buble(false, Offset(300.0, 300.0), 40.0, Colors.white, 4.0, PoseLandmarkType.leftWrist),
@@ -36,7 +36,7 @@ class Training {
 
   Buble? actualBuble; 
 
-  Training(Buble this.actualBuble){
+  Training(Buble this.actualBuble, String this.name){
     actualBuble!.setVisibility(true);
   }
 

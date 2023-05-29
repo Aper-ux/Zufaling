@@ -9,6 +9,7 @@ import 'package:intl/intl.dart';
 
 import '../classes/user.dart';
 import '../classes/rutines.dart';
+import '../dto/rutinesDto.dart';
 
 class PoseDetectorView extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -67,21 +68,24 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
         final users = await searchUser(widget.user);
 
         // Obtener el id del user users
-        final id = users[0].id;
+        int? id = users[0].id;
 
         // Insertar rutina completada en rutinas
         DateTime now = DateTime.now();
         String formattedDate = DateFormat('dd/MM/yyyy').format(now);
         String formattedTime = DateFormat('HH:mm:ss').format(now);
         String date = '$formattedDate - $formattedTime';
-
         final rutineData = Rutines(
-            id: 0, rutine: 'Rutina', userId: id, date: date, completed: 'yes');
+            userId: id,
+            rutine: widget.training.name,
+            date: date,
+            completed: 'si');
 
         insertRutine(rutineData);
+        print(rutineData.toString());
 
         // ignore: use_build_context_synchronously
-        Navigator.pushNamed(context, 'rutinas',
+        Navigator.popAndPushNamed(context, 'rutinas',
             arguments: {'user': widget.user});
         // ignore: use_build_context_synchronously
         showAlertDialog(context, widget.user);
@@ -100,6 +104,8 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
     return camera(
       cameras: widget.cameras,
       customPaint: _customPaint,
+      training: widget.training,
+      user: widget.user,
       onImage: (inputImage) {
         processImage(inputImage);
       },

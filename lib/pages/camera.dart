@@ -4,14 +4,24 @@ import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_commons/google_mlkit_commons.dart';
+import 'package:intl/intl.dart';
 
+import '../classes/rutines.dart';
+import '../classes/trainings.dart';
+import '../classes/user.dart';
+
+// ignore: camel_case_types
 class camera extends StatefulWidget {
+  final Training training;
+  final String user;
   camera(
       {Key? key,
       required this.cameras,
       required this.customPaint,
       //required this.bubles_painter,
       required this.onImage,
+      required this.training,
+      required this.user,
       this.initialDirection = CameraLensDirection.front})
       : super(key: key);
 
@@ -77,7 +87,26 @@ class _cameraState extends State<camera> {
     return ScaffoldMessenger(
       child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
         FloatingActionButton(
-          onPressed: () {
+          onPressed: () async {
+            final users = await searchUser(widget.user);
+
+            // Obtener el id del user users
+            int? id = users[0].id;
+
+            // Insertar rutina completada en rutinas
+            DateTime now = DateTime.now();
+            String formattedDate = DateFormat('dd/MM/yyyy').format(now);
+            String formattedTime = DateFormat('HH:mm:ss').format(now);
+            String date = '$formattedDate - $formattedTime';
+            final rutineData = Rutines(
+                userId: id,
+                rutine: widget.training.name,
+                date: date,
+                completed: 'no');
+
+            insertRutine(rutineData);
+            print(rutineData.toString());
+
             Navigator.pop(context);
           },
           child: const Icon(Icons.stop_rounded),

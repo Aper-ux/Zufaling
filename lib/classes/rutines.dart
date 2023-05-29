@@ -2,14 +2,14 @@ import 'package:sqflite/sqflite.dart';
 import 'package:zufaling/database/data_base.dart';
 
 class Rutines {
-  final int id;
+  final int? id;
   final String rutine;
-  final String userId;
+  final int? userId;
   final String date;
   final String completed;
 
   Rutines(
-      {required this.id,
+      {this.id,
       required this.userId,
       required this.rutine,
       required this.date,
@@ -18,11 +18,17 @@ class Rutines {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'name': userId,
+      'user_id': userId,
       'rutine': rutine,
       'date': date,
       'completed': completed,
     };
+  }
+
+  /* toString */
+  @override
+  String toString() {
+    return 'Rutines{id: $id, userId: $userId, rutine: $rutine, date: $date, completed: $completed}';
   }
 }
 
@@ -37,13 +43,19 @@ Future<void> insertRutine(Rutines rutine) async {
   );
 }
 
-Future<List<Map<String, dynamic>>> searchRutines(String user) async {
+/* Print all rutines */
+Future<List<Rutines>> printRutines() async {
   final db = await data_base.instance.database;
 
-  //Get the rutines list for the user
-  final List<Map<String, dynamic>> maps = await db.query('rutine',
-      where: 'user_id = ?', whereArgs: [user], orderBy: 'id ASC');
+  final List<Map<String, dynamic>> maps = await db.query('rutine');
 
-  /* return rutines list */
-  return maps;
+  return List.generate(maps.length, (i) {
+    return Rutines(
+      id: maps[i]['id'],
+      userId: maps[i]['user_id'],
+      rutine: maps[i]['rutine'],
+      date: maps[i]['date'],
+      completed: maps[i]['completed'],
+    );
+  });
 }

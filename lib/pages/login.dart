@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../classes/rutines.dart';
 import '../classes/user.dart';
 
 // ignore: camel_case_types
@@ -124,7 +125,7 @@ class _loginState extends State<login> {
 
                 if (users.isEmpty) {
                   /* create user */
-                  final userData = User(name: user.text, id: '0');
+                  final userData = User(name: user.text);
                   await insertUser(userData);
                   rutinasPage(userData.name);
                   print('creo usuario');
@@ -132,6 +133,10 @@ class _loginState extends State<login> {
                   final userData = users[0].name;
                   rutinasPage(userData);
                   print('encontro usuario');
+                  final Allusers = searchUsers();
+                  printUsers(Allusers);
+                  final Allrutines = printRutines();
+                  //printAllRutines(Allrutines);
                 }
               },
               child: const Text('Empezar'),
@@ -140,6 +145,30 @@ class _loginState extends State<login> {
         ),
       ),
     ));
+  }
+
+  void printUsers(Allusers) async {
+    Future<List<User>> usersFuture =
+        Allusers; // Obtén el objeto Future<List<User>>
+
+    usersFuture.then((List<User> users) {
+      // El futuro se ha completado y se ha obtenido la lista de usuarios
+      for (User user in users) {
+        print('ID: ${user.id}, Name: ${user.name}');
+      }
+    });
+  }
+
+  void printAllRutines(Allrutines) async {
+    Future<List<Rutines>> rutinesFuture =
+        Allrutines; // Obtén el objeto Future<List<User>>
+
+    rutinesFuture.then((List<Rutines> rutines) {
+      for (Rutines rut in rutines) {
+        print(
+            'ID: ${rut.id}, Rutine: ${rut.rutine}, User: ${rut.userId}, Date: ${rut.date}, Completed: ${rut.completed}');
+      }
+    });
   }
 
   void rutinasPage(us) {

@@ -3,21 +3,23 @@ import 'package:zufaling/classes/trainings.dart';
 import 'package:zufaling/classes/bubles.dart';
 
 class RutinaWidgetButton extends StatelessWidget {
-  const RutinaWidgetButton({
-    Key? key,
-    required this.name,
-    required this.description,
-    required this.bubles,
-    required this.user,
-  }) : super(key: key);
+  const RutinaWidgetButton(
+      {Key? key,
+      required this.name,
+      required this.description,
+      required this.bubles,
+      required this.user,
+      required this.trainingName})
+      : super(key: key);
   final String name;
   final String description;
   final List<Buble> bubles;
   final String user;
+  final String trainingName;
 
   @override
   Widget build(BuildContext context) {
-    final Training training = Training(bubles.first);
+    final Training training = Training(bubles.first, trainingName);
     return Container(
       height: 100,
       padding: const EdgeInsets.all(15),
