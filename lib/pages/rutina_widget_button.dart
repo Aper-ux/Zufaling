@@ -22,7 +22,7 @@ class RutinaWidgetButton extends StatelessWidget {
     final Training training = Training(bubles.first, trainingName);
     return Container(
       height: 100,
-      padding: const EdgeInsets.all(15),
+      padding: const EdgeInsets.all(8),
       decoration: const BoxDecoration(
         color: Color.fromARGB(208, 0, 0, 0),
         border: Border(
@@ -52,15 +52,16 @@ class RutinaWidgetButton extends StatelessWidget {
             Text(
               name,
               style: const TextStyle(
-                fontSize: 24,
+                fontSize: 26,
                 color: Colors.white,
               ),
               textAlign: TextAlign.start,
             ),
+            const SizedBox(height: 12),
             Text(
               description,
               style: const TextStyle(
-                fontSize: 18,
+                fontSize: 16,
                 color: Colors.white,
               ),
               textAlign: TextAlign.center,
