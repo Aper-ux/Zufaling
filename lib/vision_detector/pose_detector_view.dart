@@ -88,7 +88,7 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
         print(rutineData.toString());
 
         // ignore: use_build_context_synchronously
-        Navigator.popAndPushNamed(context, 'rutinas',
+        Navigator.popAndPushNamed(context, 'login',
             arguments: {'user': widget.user});
         // ignore: use_build_context_synchronously
         showAlertDialog(context, widget.user);
