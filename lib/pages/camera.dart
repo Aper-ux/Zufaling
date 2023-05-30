@@ -34,7 +34,7 @@ class camera extends StatefulWidget {
   State<camera> createState() => _cameraState();
 }
 
-class _cameraState extends State<camera> {
+class _cameraState extends State<camera> with WidgetsBindingObserver{
   CameraController? _controller;
 
   int _cameraIndex = -1;
@@ -45,6 +45,7 @@ class _cameraState extends State<camera> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     if (widget.cameras.any(
       (element) =>
           element.lensDirection == widget.initialDirection &&
@@ -63,7 +64,7 @@ class _cameraState extends State<camera> {
         }
       }
     }
-
+    
     if (_cameraIndex != -1) {
       _startLiveFeed();
     }
@@ -71,9 +72,27 @@ class _cameraState extends State<camera> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _stopLiveFeed();
     super.dispose();
   }
+
+  @override
+void didChangeAppLifecycleState(AppLifecycleState state) {
+  final CameraController? cameraController = _controller;
+
+  // App state changed before we got the chance to initialize.
+  if (cameraController == null || !cameraController.value.isInitialized) {
+    return;
+  }
+
+  if (state == AppLifecycleState.inactive) {
+    _stopLiveFeed();  // calls cameraController.dispose();
+  } else if (state == AppLifecycleState.resumed) {
+    _startLiveFeed();  // calls _initializeCameraController(cameraController.description);
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {

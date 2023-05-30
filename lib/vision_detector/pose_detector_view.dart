@@ -68,6 +68,7 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
         for (Buble buble in widget.bubles){
           buble.visible = false;
         }
+        widget.training.setActualBuble(widget.bubles.first);
         final users = await searchUser(widget.user);
 
         // Obtener el id del user users
@@ -88,7 +89,7 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
         print(rutineData.toString());
 
         // ignore: use_build_context_synchronously
-        Navigator.popAndPushNamed(context, 'login',
+        Navigator.popAndPushNamed(context, 'rutinas',
             arguments: {'user': widget.user});
         // ignore: use_build_context_synchronously
         showAlertDialog(context, widget.user);
