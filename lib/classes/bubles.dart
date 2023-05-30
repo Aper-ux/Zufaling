@@ -4,7 +4,7 @@ import 'package:zufaling/painters/coordinates_translator.dart';
 
 class Buble {
   bool visible = false;
-  Offset position = Offset(0, 0);
+  Offset position = const Offset(0, 0);
   double radius = 40.0;
   Color color = Colors.red;
   double strokeWidth = 4.0;
@@ -35,33 +35,33 @@ class Buble {
 
 
   bool getVisibility() {
-    return this.visible;
+    return visible;
   }
 
   Offset getPosition() {
-    return this.position;
+    return position;
   }
 
   double getRadius() {
-    return this.radius;
+    return radius;
   }
 
   Color getColor() {
-    return this.color;
+    return color;
   }
 
   double getStrokeWidth() {
-    return this.strokeWidth;
+    return strokeWidth;
   }
 
 
   void draw(Canvas canvas) {
     final paint = Paint()
-      ..color = this.color
+      ..color = color
       ..style = PaintingStyle.stroke
-      ..strokeWidth = this.strokeWidth;
+      ..strokeWidth = strokeWidth;
 
-    canvas.drawCircle(this.position, this.radius, paint);
+    canvas.drawCircle(position, radius, paint);
   }
   
   @override
@@ -75,9 +75,9 @@ class Buble {
     Offset detector = Offset(
         translateX(poseLandmark.x, rotation, size, absoluteImageSize),
         translateY(poseLandmark.y, rotation, size, absoluteImageSize));
-    return (detector.dx - this.position.dx) * (detector.dx - this.position.dx) +
-            (detector.dy - this.position.dy) *
-                (detector.dy - this.position.dy) <
-        this.radius * this.radius;
+    return (detector.dx - position.dx) * (detector.dx - position.dx) +
+            (detector.dy - position.dy) *
+                (detector.dy - position.dy) <
+        radius * radius;
   }
 }

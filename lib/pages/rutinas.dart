@@ -70,7 +70,7 @@ class _rutinasState extends State<rutinas> {
           RutinaWidgetButton(
             name: 'Random',
             description: 'Descripcion rutina demo random',
-            bubles: Training.getRandomBubles(Size(370.0, 370.0)),
+            bubles: Training.getRandomBubles(const Size(370.0, 370.0)),
             user: args['user'],
             trainingName: 'Random',
           ),

@@ -136,7 +136,7 @@ class _loginState extends State<login> {
                   final Allusers = searchUsers();
                   printUsers(Allusers);
                   final Allrutines = printRutines();
-                  //printAllRutines(Allrutines);
+                  printAllRutines(Allrutines);
                 }
               },
               child: const Text('Empezar'),

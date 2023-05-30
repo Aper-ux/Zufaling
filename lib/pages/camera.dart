@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +12,7 @@ import '../classes/user.dart';
 class camera extends StatefulWidget {
   final Training training;
   final String user;
-  camera(
+  const camera(
       {Key? key,
       required this.cameras,
       required this.customPaint,

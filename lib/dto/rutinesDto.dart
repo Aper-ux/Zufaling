@@ -1,6 +1,3 @@
-import 'package:sqflite/sqflite.dart';
-import 'package:zufaling/database/data_base.dart';
-
 import '../classes/rutines.dart';
 import '../classes/user.dart';
 

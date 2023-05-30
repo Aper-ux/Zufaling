@@ -3,7 +3,6 @@ import 'package:google_mlkit_pose_detection/google_mlkit_pose_detection.dart';
 import 'package:zufaling/classes/bubles.dart';
 import 'coordinates_translator.dart';
 import 'package:zufaling/classes/trainings.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 class PosePainter extends CustomPainter {
   PosePainter(this.training, this.bubles, this.poses, this.absoluteImageSize,

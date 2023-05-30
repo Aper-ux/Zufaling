@@ -119,8 +119,8 @@ class _recordState extends State<record> {
                                           bottom:
                                               BorderSide(color: Colors.black)),
                                     ),
-                                    child: Row(
-                                      children: const [
+                                    child: const Row(
+                                      children: [
                                         Expanded(
                                           child: Text(
                                             'Nro',
