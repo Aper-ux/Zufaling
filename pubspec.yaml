@@ -17,6 +17,7 @@ dependencies:
   sqflite: ^2.2.7
   path_provider: ^2.0.5
   intl: ^0.17.0
+  permission_handler: ^8.2.2
 
 dev_dependencies:
   flutter_test:
@@ -38,11 +39,11 @@ flutter_native_splash:
     image_dark: "assets/images/logo.png"
     icon_background_color_dark: "#000000"
     branding: assets/images/brand.png
-
   web: false
 
 flutter:
   uses-material-design: true
   assets:
     - assets/prueba.mp4
-    - assets/images/r1.jpg
+    - assets/images/logo.png
+    - assets/images/brand.png
