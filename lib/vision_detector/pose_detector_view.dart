@@ -6,6 +6,7 @@ import 'package:zufaling/classes/trainings.dart';
 import 'package:zufaling/painters/pose_painter.dart';
 import 'package:zufaling/pages/camera.dart';
 import 'package:intl/intl.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../classes/user.dart';
 import '../classes/rutines.dart';
@@ -48,6 +49,12 @@ class PoseDetectorViewState extends State<PoseDetectorView> {
   }
 
   Future<void> processImage(InputImage inputImage) async {
+    PermissionStatus status = await Permission.microphone.request();
+    if (status.isGranted) {
+      // El permiso del micrófono ha sido concedido.
+      //print('Permiso concedido');
+    }
+
     if (!_canProcess || _isBusy) return;
     _isBusy = true;
     setState(() {});
